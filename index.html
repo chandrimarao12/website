@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assist Bot</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Assist Bot</h1>
+        </header>
+
+        <div class="chatbox">
+            <div class="messages" id="messages"></div>
+            <div class="input-container">
+                </button>
+                <input type="text" id="inputField" placeholder="Type a message..." autocomplete="off">
+                
+                </button>
+                <button id="sendBtn" class="send-btn">
+                    <img src="assets/send-icon.png" alt="Send">
+                </button>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* General styles for the loading spinner */
+        
+        .loading-spinner span {
+            width: 5px;
+            height: 5px;
+            margin: 0 5px;
+            background-color: #d4c5c5;
+            border-radius:100%;
+            animation: jump 1.2s infinite ease-in-out;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+
+        /* Additional styles for the message container */
+        
+    </style>
+
+    <div id="messages"></div>
+
+    <script>
+        function addLoadingAnimation() {
+            const loadingElement = document.createElement('div');
+            loadingElement.classList.add('message', 'bot', 'loading-animation');
+            loadingElement.innerHTML = `
+                <div class="loading-spinner">
+                    <span>.</span><span>.</span><span>.</span>
+                </div>
+            `;
+            document.getElementById('messages').appendChild(loadingElement);
+            scrollToBottom();
+            return loadingElement; // Return the loading element for later reference
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
